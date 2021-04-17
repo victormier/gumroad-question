@@ -1,0 +1,61 @@
+<!-- This is a test overlay page. -->
+<!-- Code here is oversimplified for test purposes (js added in a script tag, etc.). -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <script src="https://gumroad.com/js/gumroad-embed.js"></script>
+    <style>
+      .gumroad-overlay {
+        transition: background .3s linear;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 0;
+      }
+      .gumroad-embed {
+        position: relative;
+        z-index: 10;
+        max-width: 960px;
+        cursor: auto;
+        height: auto;
+        margin: auto;
+      }
+    </style>
+    <script>
+      window.addEventListener('load', function() {
+        var url = new URL(window.location.href),
+            productId = url.searchParams.get("productId"),
+            embed = document.createElement('div'),
+            overlay = document.getElementById('gumroad-overlay'),
+            overlayBg = "rgba(0,0,0,.5)";
+
+        function setOverlayBackground(background) {
+          overlay.style.background = background;
+        }(overlayBg);
+
+        overlay.onclick = function() {
+          setOverlayBackground('0');
+          window.top.postMessage('gumroad-close', '*');
+        }
+        window.addEventListener('message', (e) => {
+          if (e.data === 'iframe-opened') {
+            setOverlayBackground(overlayBg)
+          }
+        });
+
+        embed.setAttribute("data-gumroad-product-id", productId);
+        embed.setAttribute("class", "gumroad-product-embed");
+        document.getElementById('gumroad-embed').appendChild(embed);
+      });
+    </script>
+  </head>
+  <body>
+    <div id='gumroad-overlay' class='gumroad-overlay'></div>
+    <div id='gumroad-embed' class='gumroad-embed'></div>
+  </body>
+</html>
