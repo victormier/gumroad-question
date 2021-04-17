@@ -80,6 +80,7 @@ ________
 id
 seller_id
 value
+created_at
 
 class Payout < ApplicationRecord
   belongs_to :seller
@@ -91,6 +92,7 @@ add_index :payouts, :seller_id # Use case: listing payouts for a seller.
 refunds
 ________
 id
+created_at
 
 class Refund < ApplicationRecord
   has_one :purchase

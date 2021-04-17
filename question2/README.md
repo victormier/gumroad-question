@@ -17,6 +17,7 @@ Due to time limitations, the script uses a custom and simplified `overlay.html` 
 - The overlay page uses the Gumroad embed widget, which adds a margin to the main element which leaves a little area unclickable when attempting to close the overlay/iframe. This would not happen if we had full control of the overlay page (e.g.: not having to use the embed widget).
 - Messaging between iframe and parent is insecure (we use * as the domain). Domains should be exchanged on setup between the iframe and parent.
 - addEventListener is not supported by IE6-8 (could add a polyfill or use window.attachEvent).
+- There's no loader shown when loading the iframe (could send a message to parent on loading the iframe document to hide it).
 - Mobile screens, as well as window resizing, are not supported.
 - Only Chrome and Firefox's latest versions have been tested.
 - The code is not production-ready for these reasons and more.
