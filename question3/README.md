@@ -22,7 +22,7 @@ Remaining questions/edge cases:
 
 ## Diagram (simplified)
 
-![Data model schema](https://github.com/victormier/gumroad-question/blob/master/question3/diagram.png?raw=true)
+![Data model schema](https://raw.githubusercontent.com/victormier/gumroad-question/main/question3/diagram.png)
 
 ## Database tables and models.
 
