@@ -1,6 +1,6 @@
 # Question 3: A data modeling question
 
-The proposed solution uses three models: `Purchase`, `Refund` or `Payout` that represent an operation on the balance:
+The proposed solution uses three models: `Purchase`, `Refund` and `Payout` that represent an operation on the balance:
 
 - Balance is stored as a decimal on the seller
 - Balance is computed whenever a new operation is created and stored on the seller for performance (# of operations can be very high, so calculating it from operations, whereas possible, is not efficient). This balance update will require a row-level lock on the seller for data consistency, which could become a potential bottleneck, especially if the frequency of operations is very high.
