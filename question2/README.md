@@ -20,6 +20,7 @@ Due to time limitations, the script uses a custom and simplified `overlay.html` 
 - Mobile screens, as well as window resizing, are not supported.
 - Only Chrome and Firefox's latest versions have been tested.
 - The code is not production-ready for these reasons and more.
+- It only supports single products (not multiple products with a cart like the widget, but this functionality should live in the overlay page).
 
 ## Run
 
